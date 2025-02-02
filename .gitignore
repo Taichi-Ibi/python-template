@@ -169,3 +169,27 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# VSCode
+.vscode/
+
+# Mac OS
+.DS_Store
+
+# AWS credentials
+.aws/
+
+# Logs
+logs/
+*.log
+
+# Local configuration files
+config.local.py
+settings.local.py
+
+# Virtual environment
+venv/
+*.venv
+
+# Environment variables
+.env
