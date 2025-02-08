@@ -190,6 +190,8 @@ settings.local.py
 # Virtual environment
 venv/
 *.venv
+.python-version
+uv.lock
 
 # Environment variables
 .env
