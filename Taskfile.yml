@@ -1,0 +1,24 @@
+version: "3"
+
+tasks:
+  pre-commit:
+    desc: Run pre-commit checks
+    cmds:
+      - uv run ruff check --fix .
+      - uv run ruff format .
+      - uv run mypy .
+
+  run:
+    desc: Run the application
+    cmds:
+      - uv run -m src.your_app_name
+
+  test:
+    desc: Run tests
+    cmds:
+      - uv run pytest
+      
+  up:
+    desc: Run docker compose up
+    cmds:
+      - docker compose up --build
