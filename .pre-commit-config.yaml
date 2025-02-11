@@ -1,10 +1,25 @@
+default_stages: [commit, push]
+
 repos:
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.280  # stableを指定すると最新のバージョンになりますが、バージョン固定が推奨
+    rev: v0.3.1  # stableを指定すると最新のバージョンになりますが、バージョン固定が推奨
     hooks:
       - id: ruff
+        stages: [commit]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.4.1
+    rev: v1.8.0
     hooks:
       - id: mypy
+        stages: [commit]
+
+  -   repo: local
+      hooks:
+      -   id: test
+          name: test
+          entry: uv tool run pytest@8.3
+          stages:
+              - "push"
+          language: system
+          pass_filenames: false
+          always_run: true

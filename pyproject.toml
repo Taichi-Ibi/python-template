@@ -10,22 +10,19 @@ dependencies = [
 
 [tool.mypy]
 python_version = "3.11"
-show_error_context = true  # エラー時の詳細情報を表示
-show_column_numbers = true  # エラー発生箇所の列番号を表示
-disallow_untyped_defs = true  # 型注釈のない関数定義を許可しない
-no_implicit_optional = true  # デフォルトで None を許容しない
-check_untyped_defs = true  # 型注釈のない関数もチェック
-warn_redundant_casts = true  # 冗長なキャストに警告
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+ignore_missing_imports = true
+strict = true
 
 [tool.ruff]
 target-version = "py311"  # 対象とするPythonのバージョン
-select = ["E", "F", "W", "B", "I"]  # 有効にするルール
-ignore = []  # 無視するルール
+lint.select = ["E", "F", "W", "B", "I"]  # 有効にするルール
+lint.ignore = []  # 無視するルール
 
 [dependency-groups]
 dev = [
-    "mypy>=1.15.0",
     "pre-commit>=4.1.0",
-    "pytest>=8.3.4",
-    "ruff>=0.9.6",
 ]

@@ -6,4 +6,4 @@ COPY pyproject.toml ./
 COPY src/ ./src/
 
 EXPOSE 8080
-CMD [ "uv", "run", "-m", "src.your_app_name" ]
+CMD [ "uv", "run", "-m", "src.my_project" ]
