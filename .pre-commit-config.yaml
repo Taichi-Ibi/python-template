@@ -1,25 +1,28 @@
-default_stages: [commit, push]
+default_stages: [pre-commit, pre-push]
 
 repos:
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.3.1  # stableを指定すると最新のバージョンになりますが、バージョン固定が推奨
+  - repo: local
     hooks:
-      - id: ruff
-        stages: [commit]
+      # - id: ruff-check
+      #   name: ruff check
+      #   entry: uv tool run ruff@0.3.1 check . --fix
+      #   language: system
+      #   stages: [pre-commit]
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
-    hooks:
-      - id: mypy
-        stages: [commit]
+      # - id: ruff-format
+      #   name: ruff format
+      #   entry: uv tool run ruff@0.3.1 format .
+      #   language: system
+      #   stages: [pre-commit]
 
-  -   repo: local
-      hooks:
-      -   id: test
-          name: test
-          entry: uv tool run pytest@8.3
-          stages:
-              - "push"
-          language: system
-          pass_filenames: false
-          always_run: true
+      # - id: mypy
+      #   name: mypy
+      #   entry: uv tool run mypy@1.8.0 . --strict
+      #   language: system
+      #   stages: [pre-commit]
+
+      - id: test
+        name: test
+        entry: uv run pytest
+        language: system
+        stages: [pre-push]

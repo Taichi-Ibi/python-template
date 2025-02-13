@@ -1,7 +1,6 @@
 version: "3"
-
 tasks:
-  pre-commit:
+  check:
     desc: Run pre-commit checks
     cmds:
       - uv tool run ruff@0.3.1 check . --fix
@@ -16,8 +15,8 @@ tasks:
   test:
     desc: Run tests
     cmds:
-      - uv tool run pytest@8.3
-      
+      - uv run pytest
+
   up:
     desc: Run docker compose up
     cmds:
