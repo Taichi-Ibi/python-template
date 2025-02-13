@@ -3,26 +3,30 @@ default_stages: [pre-commit, pre-push]
 repos:
   - repo: local
     hooks:
-      # - id: ruff-check
-      #   name: ruff check
-      #   entry: uv tool run ruff@0.3.1 check . --fix
-      #   language: system
-      #   stages: [pre-commit]
+      - id: ruff-check
+        name: ruff check
+        entry: uv run ruff check . --fix
+        language: system
+        types: [python]
+        stages: [pre-commit]
 
-      # - id: ruff-format
-      #   name: ruff format
-      #   entry: uv tool run ruff@0.3.1 format .
-      #   language: system
-      #   stages: [pre-commit]
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format .
+        language: system
+        types: [python]
+        stages: [pre-commit]
 
-      # - id: mypy
-      #   name: mypy
-      #   entry: uv tool run mypy@1.8.0 . --strict
-      #   language: system
-      #   stages: [pre-commit]
+      - id: mypy
+        name: mypy
+        entry: uv run mypy . --strict
+        language: system
+        types: [python]
+        stages: [pre-commit]
 
       - id: test
         name: test
         entry: uv run pytest
         language: system
+        pass_filenames: false
         stages: [pre-push]
