@@ -26,6 +26,4 @@ lint.select = ["E", "F", "W", "B", "I"]  # 有効にするルール
 lint.ignore = []  # 無視するルール
 
 [dependency-groups]
-dev = [
-    "pre-commit>=4.1.0",
-]
+dev = []
