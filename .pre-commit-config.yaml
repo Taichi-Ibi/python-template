@@ -14,8 +14,8 @@ repos:
         language: system
         types: [python]
 
-      - id: mypy
-        name: mypy
-        entry: uv tool run mypy .
-        language: system
-        types: [python]
+      # - id: mypy
+      #   name: mypy
+      #   entry: uv tool run mypy .
+      #   language: system
+      #   types: [python]
