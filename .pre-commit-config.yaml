@@ -19,7 +19,7 @@ repos:
 
       - id: mypy
         name: mypy
-        entry: uv tool run mypy
+        entry: uv tool run mypy .
         args: [--strict]
         language: system
         types: [python]
