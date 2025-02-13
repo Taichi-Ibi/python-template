@@ -17,6 +17,5 @@ repos:
       - id: mypy
         name: mypy
         entry: uv tool run mypy .
-        args: [--ignore-missing-imports]
         language: system
         types: [python]
