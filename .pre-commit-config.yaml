@@ -17,9 +17,10 @@ repos:
         types: [python]
         stages: [pre-commit]
 
-      # - id: mypy
-      #   name: mypy
-      #   entry: uv tool run mypy@1.8.0 . --strict
-      #   language: system
-      #   types: [python]
-      #   stages: [pre-commit]
+      - id: mypy
+        name: mypy
+        entry: uv tool run mypy
+        args: [--strict]
+        language: system
+        types: [python]
+        stages: [pre-commit]
